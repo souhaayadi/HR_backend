@@ -9,7 +9,7 @@ import java.io.Serializable;
 public class Adresse implements Serializable {
     @Id
     @GeneratedValue
-<<<<<<< Updated upstream
+
     private Long code_adresse;
     private String postalCode;
     private String country;
@@ -66,53 +66,5 @@ public class Adresse implements Serializable {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
-=======
-    private String codePostal;
-    private String pays;
-    private String ville;
-    private String adressePrincipale;
-    private String code_adresse;
-    public Adresse() {
-    }
-
-    public String getCodePostal() {
-        return codePostal;
-    }
-
-    public void setCodePostal(String codePostal) {
-        this.codePostal = codePostal;
-    }
-
-    public String getPays() {
-        return pays;
-    }
-
-    public void setPays(String pays) {
-        this.pays = pays;
-    }
-
-    public String getVille() {
-        return ville;
-    }
-
-    public void setVille(String ville) {
-        this.ville = ville;
-    }
-
-    public String getAdressePrincipale() {
-        return adressePrincipale;
-    }
-
-    public void setAdressePrincipale(String adressePrincipale) {
-        this.adressePrincipale = adressePrincipale;
-    }
-
-    public String getCode_adresse() {
-        return code_adresse;
-    }
-
-    public void setCode_adresse(String code_adresse) {
-        this.code_adresse = code_adresse;
->>>>>>> Stashed changes
     }
 }
