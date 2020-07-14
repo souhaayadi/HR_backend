@@ -1,6 +1,4 @@
 package com.projet.web;
-
-
 import com.projet.dao.UserRepository;
 import com.projet.entites.User;
 import org.springframework.beans.factory.annotation.Autowired;

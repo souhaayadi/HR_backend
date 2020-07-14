@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.*;
+import javax.persistence.criteria.CriteriaBuilder;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -25,7 +26,7 @@ private String nom;
 private String prenom;
 private String cin;
 private Date dateEntree;
-private String nbrEnfants;
+private Integer nbrEnfants;
 private Date dateNaiss;
 private String email;
 private String numTel;
@@ -47,6 +48,9 @@ private DemandeConge demandeConge;
 @OneToOne()
 @JsonIgnore
 private Fonction fonction;
+@OneToOne()
+@JsonIgnore
+private Service service;
 
 public Employee() {
 	super();
@@ -55,7 +59,7 @@ public Employee() {
 
 
 public Employee(String nom, String prenom, Date dateNaiss, String email, String sexe, Adresse adress , String matricule,String cin
-,Date dateEntree,String nbrEnfants,String numTel,String situationFamiliale,String soldeConge,String droitAnnuel,String bulletinPaie,Diplome diplome,DemandeConge demandeConge,Fonction fonction) {
+,Date dateEntree,Integer nbrEnfants,String numTel,String situationFamiliale,String soldeConge,String droitAnnuel,String bulletinPaie,Diplome diplome,DemandeConge demandeConge,Fonction fonction,Service service) {
 	super();
 	this.nom = nom;
 	this.prenom = prenom;
@@ -75,6 +79,7 @@ public Employee(String nom, String prenom, Date dateNaiss, String email, String 
 	this.diplome=diplome;
 	this.demandeConge=demandeConge;
 	this.fonction=fonction;
+	this.service=service;
 }
 
 
@@ -164,11 +169,11 @@ public void setDateNaiss(Date dateNaiss) {
 		this.dateEntree = dateEntree;
 	}
 
-	public String getNbrEnfants() {
+	public Integer getNbrEnfants() {
 		return nbrEnfants;
 	}
 
-	public void setNbrEnfants(String nbrEnfants) {
+	public void setNbrEnfants(Integer nbrEnfants) {
 		this.nbrEnfants = nbrEnfants;
 	}
 
@@ -226,5 +231,13 @@ public void setDateNaiss(Date dateNaiss) {
 
 	public void setFonction(Fonction fonction) {
 		this.fonction = fonction;
+	}
+
+	public Service getService() {
+		return service;
+	}
+
+	public void setService(Service service) {
+		this.service = service;
 	}
 }
