@@ -1,8 +1,10 @@
 package com.projet.web;
 
 import java.util.Date;
+import java.util.List;
 
 import com.projet.dao.CongeRepository;
+import com.projet.entites.DemandeConge;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -26,7 +28,10 @@ public class CongeRestService {
 	@Autowired
 	private CongeRepository congeRepository;
 
-
+	@GetMapping("/conges")
+	public List<DemandeConge> getAllConges(){
+		return congeRepository.findAll();
+	}
 
 
 

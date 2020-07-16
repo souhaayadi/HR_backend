@@ -18,7 +18,8 @@ public class DemandeConge implements Serializable {
     private String raison;
     private String type;
     private String status;
-
+    private String manager;
+    private String nomEmployee;
     public DemandeConge() {
     }
 
@@ -76,5 +77,21 @@ public class DemandeConge implements Serializable {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public String getManager() {
+        return manager;
+    }
+
+    public void setManager(String manager) {
+        this.manager = manager;
+    }
+
+    public String getNomEmployee() {
+        return nomEmployee;
+    }
+
+    public void setNomEmployee(String nomEmployee) {
+        this.nomEmployee = nomEmployee;
     }
 }

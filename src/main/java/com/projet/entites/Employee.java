@@ -24,32 +24,32 @@ private Long code;
 private String matricule;
 private String nom;
 private String prenom;
-private String cin;
+private Integer  cin;
 private Date dateEntree;
 private Integer nbrEnfants;
 private Date dateNaiss;
 private String email;
-private String numTel;
+private Integer numTel;
 private String situationFamiliale;
-private String soldeConge;
-private String droitAnnuel;
+private Integer soldeConge;
+private Integer droitAnnuel;
 private String bulletinPaie;
 private String sexe;
-
-@OneToOne()
-@JsonIgnore
+private String comment;
+@OneToOne(targetEntity = Diplome.class,cascade = CascadeType.ALL)
+@JoinColumn(name="diplome",referencedColumnName ="id")
 private Diplome diplome;
-@OneToOne()
-@JsonIgnore
+@OneToOne(targetEntity = Adresse.class,cascade = CascadeType.ALL)
+@JoinColumn(name="adr_client",referencedColumnName ="code_adresse")
 private Adresse address;
-@OneToOne()
-@JsonIgnore
+@OneToOne(targetEntity = DemandeConge.class,cascade = CascadeType.ALL)
+@JoinColumn(name="demande_conge",referencedColumnName ="id")
 private DemandeConge demandeConge;
-@OneToOne()
-@JsonIgnore
+@OneToOne(targetEntity = Fonction.class,cascade = CascadeType.ALL)
+@JoinColumn(name="fonction",referencedColumnName ="id")
 private Fonction fonction;
-@OneToOne()
-@JsonIgnore
+@OneToOne(targetEntity = Service.class,cascade = CascadeType.ALL)
+@JoinColumn(name="service",referencedColumnName ="id")
 private Service service;
 
 public Employee() {
@@ -58,8 +58,8 @@ public Employee() {
 
 
 
-public Employee(String nom, String prenom, Date dateNaiss, String email, String sexe, Adresse adress , String matricule,String cin
-,Date dateEntree,Integer nbrEnfants,String numTel,String situationFamiliale,String soldeConge,String droitAnnuel,String bulletinPaie,Diplome diplome,DemandeConge demandeConge,Fonction fonction,Service service) {
+public Employee(String nom, String prenom, Date dateNaiss, String email, String sexe, Adresse adress , String matricule,Integer cin
+,Date dateEntree,Integer nbrEnfants,Integer numTel,String situationFamiliale,Integer soldeConge,Integer droitAnnuel,String bulletinPaie,Diplome diplome,DemandeConge demandeConge,Fonction fonction,Service service,String comment) {
 	super();
 	this.nom = nom;
 	this.prenom = prenom;
@@ -80,6 +80,7 @@ public Employee(String nom, String prenom, Date dateNaiss, String email, String 
 	this.demandeConge=demandeConge;
 	this.fonction=fonction;
 	this.service=service;
+	this.comment=comment;
 }
 
 
@@ -153,13 +154,6 @@ public void setDateNaiss(Date dateNaiss) {
 		this.matricule = matricule;
 	}
 
-	public String getCin() {
-		return cin;
-	}
-
-	public void setCin(String cin) {
-		this.cin = cin;
-	}
 
 	public Date getDateEntree() {
 		return dateEntree;
@@ -177,13 +171,6 @@ public void setDateNaiss(Date dateNaiss) {
 		this.nbrEnfants = nbrEnfants;
 	}
 
-	public String getNumTel() {
-		return numTel;
-	}
-
-	public void setNumTel(String numTel) {
-		this.numTel = numTel;
-	}
 
 	public String getSituationFamiliale() {
 		return situationFamiliale;
@@ -193,21 +180,7 @@ public void setDateNaiss(Date dateNaiss) {
 		this.situationFamiliale = situationFamiliale;
 	}
 
-	public String getSoldeConge() {
-		return soldeConge;
-	}
 
-	public void setSoldeConge(String soldeConge) {
-		this.soldeConge = soldeConge;
-	}
-
-	public String getDroitAnnuel() {
-		return droitAnnuel;
-	}
-
-	public void setDroitAnnuel(String droitAnnuel) {
-		this.droitAnnuel = droitAnnuel;
-	}
 
 	public String getBulletinPaie() {
 		return bulletinPaie;
@@ -239,5 +212,45 @@ public void setDateNaiss(Date dateNaiss) {
 
 	public void setService(Service service) {
 		this.service = service;
+	}
+
+	public String getComment() {
+		return comment;
+	}
+
+	public void setComment(String comment) {
+		this.comment = comment;
+	}
+
+	public Integer getCin() {
+		return cin;
+	}
+
+	public void setCin(Integer cin) {
+		this.cin = cin;
+	}
+
+	public Integer getNumTel() {
+		return numTel;
+	}
+
+	public void setNumTel(Integer numTel) {
+		this.numTel = numTel;
+	}
+
+	public Integer getSoldeConge() {
+		return soldeConge;
+	}
+
+	public void setSoldeConge(Integer soldeConge) {
+		this.soldeConge = soldeConge;
+	}
+
+	public Integer getDroitAnnuel() {
+		return droitAnnuel;
+	}
+
+	public void setDroitAnnuel(Integer droitAnnuel) {
+		this.droitAnnuel = droitAnnuel;
 	}
 }
