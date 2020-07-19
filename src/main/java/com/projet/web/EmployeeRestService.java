@@ -31,7 +31,6 @@ public class EmployeeRestService {
 	}
 
 
-
 	@GetMapping("/employees/{codeEmployee}")
 	public Employee consulterEmployee(@PathVariable Long codeEmployee) {
 

@@ -53,9 +53,8 @@ private Fonction fonction;
 private Service service;
 
 public Employee() {
-	super();
-}
 
+}
 
 
 public Employee(String nom, String prenom, Date dateNaiss, String email, String sexe, Adresse adress , String matricule,Integer cin
@@ -103,7 +102,7 @@ public void setEmail(String email) {
 	this.email = email;
 }
 
-	public Diplome getDiplome() {
+public Diplome getDiplome() {
 		return diplome;
 	}
 

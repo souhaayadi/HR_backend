@@ -10,7 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import com.projet.dao.EmployeeRepository;
 
 @SpringBootApplication
-public class GestionCompteApplication implements CommandLineRunner{
+public class HrBackend implements CommandLineRunner{
 	
 	@Autowired
 	private EmployeeRepository employeeRepository;
@@ -19,7 +19,7 @@ public class GestionCompteApplication implements CommandLineRunner{
 
 
 	public static void main(String[] args) {
-   SpringApplication.run(GestionCompteApplication.class, args);
+   SpringApplication.run(HrBackend.class, args);
     
       
 	}
